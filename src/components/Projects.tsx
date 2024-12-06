@@ -19,6 +19,16 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: "Love Chat Assistant - Chatbot IA",
+    description: "Un chatbot intelligent spécialisé dans les conseils amoureux, utilisant l'intelligence artificielle pour offrir des conseils personnalisés et bienveillants.",
+    image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?ixlib=rb-1.2.1&auto=format&fit=crop&w=1480&q=80",
+    technologies: ["React", "Node.js", "OpenAI", "Express", "TailwindCSS"],
+    liveLink: "https://love-chat-assistant-1.onrender.com/",
+    demoLink: "https://love-chat-assistant-1.onrender.com/",
+    category: ["Web", "IA", "FullStack"]
+  },
+  {
+    id: 2,
     title: "Bande Annonce - Projet Vidéo",
     description: "Création collaborative d'une bande annonce captivante, démontrant nos compétences en production vidéo et storytelling.",
     image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
@@ -28,7 +38,7 @@ const projects: Project[] = [
     category: ["Vidéo", "Création"]
   },
   {
-    id: 2,
+    id: 3,
     title: "E-commerce Modern",
     description: "Une plateforme e-commerce moderne avec panier d'achat, paiement en ligne et gestion des commandes.",
     image: "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80",
@@ -38,7 +48,7 @@ const projects: Project[] = [
     category: ["Web", "Frontend", "Backend"]
   },
   {
-    id: 3,
+    id: 4,
     title: "Application de Gestion",
     description: "Système de gestion des ressources et des projets avec tableaux de bord en temps réel.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1415&q=80",
@@ -48,7 +58,7 @@ const projects: Project[] = [
     category: ["Web", "FullStack"]
   },
   {
-    id: 4,
+    id: 5,
     title: "Application Mobile",
     description: "Application mobile de suivi de fitness avec synchronisation cloud.",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
@@ -59,7 +69,7 @@ const projects: Project[] = [
   }
 ];
 
-const categories = ["Tous", "Web", "Mobile", "Vidéo", "Frontend", "Backend", "FullStack", "Création"];
+const categories = ["Tous", "Web", "Mobile", "Vidéo", "Frontend", "Backend", "FullStack", "Création", "IA"];
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("Tous");
