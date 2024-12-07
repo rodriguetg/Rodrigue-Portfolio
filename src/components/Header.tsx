@@ -2,17 +2,20 @@ import React from 'react';
 import { Menu, X, Mail, Phone, Linkedin, Sun, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { LanguageSelector } from './LanguageSelector';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface HeaderProps {
   onThemeToggle: () => void;
   onNavigate: (sectionId: string) => void;
 }
 
-export function Header({ onThemeToggle, onNavigate }: HeaderProps) {
+export const Header: React.FC<HeaderProps> = ({ onThemeToggle, onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isDark, setIsDark] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { locale, setLocale, t } = useLanguage();
 
   const navItems = [
     { label: 'Accueil', id: 'hero', type: 'section' },
@@ -73,15 +76,18 @@ export function Header({ onThemeToggle, onNavigate }: HeaderProps) {
               </motion.a>
             ))}
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
-              aria-label="Toggle theme"
-            >
-              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </motion.button>
+            <div className="flex items-center gap-4">
+              <LanguageSelector
+                currentLocale={locale}
+                onLocaleChange={setLocale}
+              />
+              <button
+                onClick={onThemeToggle}
+                className="p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+              >
+                {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
 
           {/* Bouton menu mobile */}

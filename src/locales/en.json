@@ -1,0 +1,38 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "role": "Artificial Intelligence Expert",
+    "description": "Passionate about innovation and specialized in using AI technologies to solve complex problems."
+  },
+  "skills": {
+    "title": "Skills & Expertise",
+    "subtitle": "Overview of my professional capabilities",
+    "certified": "Certified",
+    "categories": {
+      "ai": "Artificial Intelligence",
+      "digital": "Digital Skills",
+      "software": "Software Mastery",
+      "professional": "Professional Skills"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Feel free to reach out with any questions or proposals",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send"
+    }
+  }
+}

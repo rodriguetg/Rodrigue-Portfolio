@@ -1,0 +1,38 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "role": "Expert en Intelligence Artificielle",
+    "description": "Passionné par l'innovation et spécialisé dans l'utilisation des technologies d'IA pour résoudre des problèmes complexes."
+  },
+  "skills": {
+    "title": "Compétences & Expertise",
+    "subtitle": "Vue d'ensemble de mes capacités professionnelles",
+    "certified": "Certifié",
+    "categories": {
+      "ai": "Intelligence Artificielle",
+      "digital": "Compétences Digitales",
+      "software": "Maîtrise Logicielle",
+      "professional": "Compétences Professionnelles"
+    }
+  },
+  "footer": {
+    "rights": "Tous droits réservés"
+  },
+  "contact": {
+    "title": "Contactez-moi",
+    "subtitle": "N'hésitez pas à me contacter pour toute question ou proposition",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "message": "Message",
+      "send": "Envoyer"
+    }
+  }
+}

@@ -77,7 +77,7 @@ export default function Skills() {
           <p className="text-lg text-gray-600">Vue d'ensemble de mes capacités professionnelles</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {skillCategories.map((category, index) => (
             <motion.div
               key={index}
@@ -115,7 +115,7 @@ export default function Skills() {
                       className="flex items-center gap-3"
                     >
                       <CheckCircle2 className="h-5 w-5 text-purple-600 flex-shrink-0" />
-                      <span className="text-gray-700">{skill}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{skill}</span>
                     </motion.li>
                   ))}
                 </ul>

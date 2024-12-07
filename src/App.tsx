@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { LanguageProvider } from './contexts/LanguageContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Footer } from './components/Footer';
@@ -58,41 +59,43 @@ function App() {
   };
 
   return (
-    <Router>
-      <ScrollToTopOnMount />
-      <div className={`min-h-screen ${isDark ? 'dark bg-gray-900 text-white' : 'bg-gray-50'} transition-colors duration-200`}>
-        <SEO />
-        <ScrollProgress />
-        <Header onThemeToggle={toggle} onNavigate={scrollToSection} />
-        
-        <Suspense fallback={<LoadingSpinner />}>
-          <Routes>
-            <Route path="/" element={
-              <main>
-                <Hero onNavigate={scrollToSection} />
-                <Suspense fallback={<LoadingSpinner />}><About /></Suspense>
-                <Suspense fallback={<LoadingSpinner />}><Experience /></Suspense>
-                <Suspense fallback={<LoadingSpinner />}><Skills /></Suspense>
-                <Suspense fallback={<LoadingSpinner />}><GitHubProjects /></Suspense>
-                <Suspense fallback={<LoadingSpinner />}><Projects /></Suspense>
-                <Suspense fallback={<LoadingSpinner />}><Services /></Suspense>
-                <Suspense fallback={<LoadingSpinner />}><Testimonials /></Suspense>
-                <Suspense fallback={<LoadingSpinner />}><Contact /></Suspense>
-              </main>
-            } />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/verification" element={<ManualVerification />} />
-          </Routes>
-        </Suspense>
+    <LanguageProvider>
+      <Router>
+        <ScrollToTopOnMount />
+        <div className={`min-h-screen ${isDark ? 'dark bg-gray-900 text-white' : 'bg-gray-50'} transition-colors duration-200`}>
+          <SEO />
+          <ScrollProgress />
+          <Header onThemeToggle={toggle} onNavigate={scrollToSection} />
+          
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={
+                <main>
+                  <Hero onNavigate={scrollToSection} />
+                  <Suspense fallback={<LoadingSpinner />}><About /></Suspense>
+                  <Suspense fallback={<LoadingSpinner />}><Experience /></Suspense>
+                  <Suspense fallback={<LoadingSpinner />}><Skills /></Suspense>
+                  <Suspense fallback={<LoadingSpinner />}><GitHubProjects /></Suspense>
+                  <Suspense fallback={<LoadingSpinner />}><Projects /></Suspense>
+                  <Suspense fallback={<LoadingSpinner />}><Services /></Suspense>
+                  <Suspense fallback={<LoadingSpinner />}><Testimonials /></Suspense>
+                  <Suspense fallback={<LoadingSpinner />}><Contact /></Suspense>
+                </main>
+              } />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/verification" element={<ManualVerification />} />
+            </Routes>
+          </Suspense>
 
-        <Footer />
-        <ScrollToTop />
-        <Suspense fallback={null}>
-          <NewsletterPopup />
-        </Suspense>
-      </div>
-    </Router>
+          <Footer />
+          <ScrollToTop />
+          <Suspense fallback={null}>
+            <NewsletterPopup />
+          </Suspense>
+        </div>
+      </Router>
+    </LanguageProvider>
   );
 }
 
