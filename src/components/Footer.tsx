@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-600 dark:text-gray-300 text-sm">
-            © {new Date().getFullYear()} Votre Nom. Tous droits réservés.
+            &copy; {new Date().getFullYear()} Rodrigue GBADOU. Tous droits réservés.
           </div>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a href="https://github.com/votre-username" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
