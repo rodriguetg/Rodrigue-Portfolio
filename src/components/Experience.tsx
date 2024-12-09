@@ -4,6 +4,19 @@ import { Briefcase, Calendar, Users, Share2 } from 'lucide-react';
 
 const experiences = [
   {
+    title: "Stage : Marketing digital ET SEO",
+    company: "Marketkit",
+    period: "Avril 2024 - Juin 2024",
+    type: "Stage",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    icon: Briefcase,
+    tasks: [
+      "Suivre les performances, reporting et analyse des KPI's",
+      "Conception de stratégies d'optimisation SEO (positionnement, trafic et conversions)",
+      "Utilisation et intégration d'outil IA"
+    ]
+  },
+  {
     title: "CHEF DE PROJET SOCIAL MEDIA ET COMMUNICATION",
     company: "STUDHELP",
     period: "Janvier 2024 - Mars 2024",
