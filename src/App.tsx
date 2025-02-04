@@ -15,13 +15,9 @@ const Experience = React.lazy(() => import('./components/Experience').then(modul
 const Skills = React.lazy(() => import('./components/Skills').then(module => ({ default: module.default })));
 const Contact = React.lazy(() => import('./components/Contact').then(module => ({ default: module.default })));
 const Projects = React.lazy(() => import('./components/Projects').then(module => ({ default: module.default })));
-const Services = React.lazy(() => import('./components/Services').then(module => ({ default: module.default })));
-const Blog = React.lazy(() => import('./components/Blog').then(module => ({ default: module.default })));
-const BlogPost = React.lazy(() => import('./components/blog/BlogPost').then(module => ({ default: module.default })));
 const ManualVerification = React.lazy(() => import('./components/ManualVerification').then(module => ({ default: module.default })));
 const Testimonials = React.lazy(() => import('./components/Testimonials').then(module => ({ default: module.default })));
 const GitHubProjects = React.lazy(() => import('./components/GitHubProjects').then(module => ({ default: module.default })));
-const NewsletterPopup = React.lazy(() => import('./components/blog/NewsletterPopup').then(module => ({ default: module.default })));
 
 // Loading fallback
 const LoadingSpinner = () => (
@@ -77,22 +73,16 @@ function App() {
                   <Suspense fallback={<LoadingSpinner />}><Skills /></Suspense>
                   <Suspense fallback={<LoadingSpinner />}><GitHubProjects /></Suspense>
                   <Suspense fallback={<LoadingSpinner />}><Projects /></Suspense>
-                  <Suspense fallback={<LoadingSpinner />}><Services /></Suspense>
                   <Suspense fallback={<LoadingSpinner />}><Testimonials /></Suspense>
                   <Suspense fallback={<LoadingSpinner />}><Contact /></Suspense>
                 </main>
               } />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/verification" element={<ManualVerification />} />
             </Routes>
           </Suspense>
 
           <Footer />
           <ScrollToTop />
-          <Suspense fallback={null}>
-            <NewsletterPopup />
-          </Suspense>
         </div>
       </Router>
     </LanguageProvider>

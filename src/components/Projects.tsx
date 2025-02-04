@@ -31,7 +31,7 @@ const projects: Project[] = [
     id: 2,
     title: "Bande Annonce - Projet Vidéo",
     description: "Création collaborative d'une bande annonce captivante, démontrant nos compétences en production vidéo et storytelling.",
-    image: "https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
+    image: "https://img.youtube.com/vi/hLpx2YvBJ6k/maxresdefault.jpg",
     technologies: ["Production Vidéo", "Montage", "Storytelling", "Travail d'équipe"],
     liveLink: "https://youtu.be/hLpx2YvBJ6k",
     demoLink: "https://youtu.be/hLpx2YvBJ6k",
@@ -39,13 +39,13 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: "E-commerce Modern",
-    description: "Une plateforme e-commerce moderne avec panier d'achat, paiement en ligne et gestion des commandes.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    linkedinLink: "https://www.linkedin.com/in/rodrigue-gbadou/",
-    demoLink: "https://preview.themeforest.net/item/shofy-react-next-js-ecommerce-template/full_screen_preview/45051288",
-    category: ["Web", "Frontend", "Backend"]
+    title: "FREELANCE COMMUNITY MANAGER - Les Cinéphiles",
+    description: "Gestion de la communauté et création de contenu pour Les Cinéphiles, une page dédiée au cinéma avec plus de 190K abonnés sur Facebook.",
+    image: "/images/projects/les-cinephiles.jpg.png",
+    technologies: ["Community Management", "Création de Contenu", "Social Media", "Engagement"],
+    liveLink: "https://www.facebook.com/fansdescinemas",
+    demoLink: "https://www.facebook.com/fansdescinemas",
+    category: ["Social Media", "Création"]
   },
   {
     id: 4,
@@ -56,20 +56,10 @@ const projects: Project[] = [
     linkedinLink: "https://www.linkedin.com/in/rodrigue-gbadou/",
     demoLink: "https://preview.themeforest.net/item/dashcode-react-redux-admin-dashboard-template/full_screen_preview/42434784",
     category: ["Web", "FullStack"]
-  },
-  {
-    id: 5,
-    title: "Application Mobile",
-    description: "Application mobile de suivi de fitness avec synchronisation cloud.",
-    image: "https://images.unsplash.com/photo-1526502900331-3a3e89110bb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
-    technologies: ["React Native", "Firebase", "TypeScript"],
-    linkedinLink: "https://www.linkedin.com/in/rodrigue-gbadou/",
-    demoLink: "https://preview.themeforest.net/item/fitclub-gym-fitness-mobile-app-ui-kit/full_screen_preview/42274870",
-    category: ["Mobile", "Frontend"]
   }
 ];
 
-const categories = ["Tous", "Web", "Mobile", "Vidéo", "Frontend", "Backend", "FullStack", "Création", "IA"];
+const categories = ["Tous", "Web", "Vidéo", "FullStack", "Création", "IA", "Social Media"];
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("Tous");
@@ -214,7 +204,7 @@ export default function Projects() {
                 </button>
               </div>
               <div className="p-4">
-                {selectedProject.id === 1 ? (
+                {selectedProject.title.includes("Bande Annonce") ? (
                   // Intégration de la vidéo YouTube pour le projet vidéo
                   <div className="aspect-video">
                     <iframe

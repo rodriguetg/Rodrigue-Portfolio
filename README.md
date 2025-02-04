@@ -19,7 +19,6 @@ Ce projet est un portfolio personnel développé avec React, TypeScript et Vite.
 src/
 ├── components/     # Composants React
 │   ├── ui/        # Composants d'interface utilisateur réutilisables
-│   ├── blog/      # Composants liés au blog
 │   └── ...        # Autres composants
 ├── hooks/         # Hooks personnalisés
 ├── types/         # Définitions de types TypeScript
@@ -32,7 +31,6 @@ src/
 
 ### Navigation
 - Navigation fluide entre les sections avec défilement automatique
-- Support des routes pour le blog
 - Gestion du retour en haut de page lors des changements de route
 - Menu responsive pour mobile
 
@@ -42,10 +40,11 @@ src/
 - Design responsive
 - Composants UI réutilisables
 
-### Blog
-- Liste des articles
-- Pages d'articles individuels
-- Système de navigation
+### Projets
+- Présentation des projets avec descriptions détaillées
+- Intégration de médias (images, vidéos YouTube)
+- Filtrage par catégories
+- Liens vers les démos et codes sources
 
 ## Prérequis
 
@@ -81,15 +80,16 @@ Le projet utilise Vite comme outil de build avec la configuration suivante :
 
 ## Dernières Modifications
 
-### Configuration
-- Simplification de la configuration Vite
-- Mise à jour des dépendances vers des versions stables
-- Retrait des fonctionnalités PWA pour une meilleure stabilité
+### Structure
+- Simplification de l'architecture du projet
+- Retrait de la section blog pour une expérience plus focalisée
+- Ajout d'une section dédiée aux projets dans la navigation principale
 
 ### Interface
-- Amélioration des transitions entre les pages
+- Amélioration des transitions entre les sections
 - Optimisation du mode sombre/clair
 - Mise à jour des animations de navigation
+- Intégration des médias sociaux (GitHub, LinkedIn, Twitter)
 
 ### Performance
 - Optimisation du chargement des composants avec React.lazy
@@ -98,7 +98,7 @@ Le projet utilise Vite comme outil de build avec la configuration suivante :
 
 ## Prochaines Étapes Possibles
 
-1. Intégration de contenu dynamique pour le blog
+1. Amélioration de l'expérience utilisateur
 2. Optimisation des performances
 3. Ajout d'animations supplémentaires
 4. Intégration de tests automatisés

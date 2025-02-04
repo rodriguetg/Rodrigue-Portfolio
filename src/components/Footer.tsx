@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin, Twitter, X } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} Rodrigue GBADOU. Tous droits réservés.
           </div>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="https://github.com/votre-username" 
+            <a href="https://github.com/rodriguetg" 
                target="_blank" 
                rel="noopener noreferrer" 
                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white flex items-center gap-2">
@@ -24,12 +24,12 @@ export const Footer: React.FC = () => {
               <Linkedin size={20} />
               <span>LinkedIn</span>
             </a>
-            <a href="https://twitter.com/votre-compte" 
+            <a href="https://twitter.com/EsperantRodrigu" 
                target="_blank" 
                rel="noopener noreferrer" 
                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white flex items-center gap-2">
               <Twitter size={20} />
-              <span>Twitter</span>
+              <span>Twitter (X)</span>
             </a>
           </div>
         </div>

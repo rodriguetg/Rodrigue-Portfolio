@@ -22,8 +22,8 @@ export const Header: React.FC<HeaderProps> = ({ onThemeToggle, onNavigate }) => 
     { label: 'À propos', id: 'about', type: 'section' },
     { label: 'Expérience', id: 'experience', type: 'section' },
     { label: 'Compétences', id: 'competences', type: 'section' },
+    { label: 'Mes Projets', id: 'projects', type: 'section' },
     { label: 'Contact', id: 'contact', type: 'section' },
-    { label: 'Blog', id: '/blog', type: 'route' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { id: string, type: string }) => {

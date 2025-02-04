@@ -78,7 +78,7 @@ export function SEO({
           "url": url,
           "sameAs": [
             "https://www.linkedin.com/in/rodrigue-gbadou/",
-            "https://github.com/votre-username"
+            "https://github.com/rodriguetg"
           ],
           "jobTitle": "Expert en Intelligence Artificielle",
           "image": image,
