@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
-import { Header } from './components/Header';
+import Header from './components/Header';
 import { Hero } from './components/Hero';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
