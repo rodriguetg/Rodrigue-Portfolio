@@ -24,7 +24,7 @@ export default defineConfig({
   resolve: {
     alias: {
       // Remplacer framer-motion par notre stub
-      'framer-motion': path.resolve(__dirname, './src/framer-motion-stub.js')
+      'framer-motion': path.resolve(__dirname, './src/framer-motion-stub.jsx')
     },
   },
   // Augmenter la limite de mémoire pour le processus de compilation
