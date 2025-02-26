@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface HeaderProps {
-  theme: string;
-  setTheme: (theme: string) => void;
-}
+interface HeaderProps {}
 
-const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
+import { useDarkMode } from '../hooks/useDarkMode';
+
+const Header: React.FC<HeaderProps> = () => {
+  const { isDark, toggle } = useDarkMode();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -27,9 +27,7 @@ const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
   }, []);
 
   // Toggle le thème sombre/clair
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+  // Remplacer l'appel à setTheme par toggle
 
   // Gérer le clic sur un lien de menu
   const handleMenuItemClick = (id: string) => {
@@ -86,11 +84,11 @@ const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
           <div className="flex items-center space-x-4">
             {/* Theme Toggle */}
             <button
-              onClick={toggleTheme}
+              onClick={toggle}
               className="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
               aria-label="Toggle dark mode"
             >
-              {theme === 'dark' ? (
+              {isDark ? (
                 <Sun className="h-5 w-5" />
               ) : (
                 <Moon className="h-5 w-5" />

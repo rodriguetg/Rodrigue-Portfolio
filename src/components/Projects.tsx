@@ -81,7 +81,7 @@ export default function Projects() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Mes Projets (Modifié)
+            Mes Projets
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
             Découvrez mes réalisations récentes
