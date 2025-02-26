@@ -18,6 +18,7 @@ const Projects = React.lazy(() => import('./components/Projects').then(module =>
 const ManualVerification = React.lazy(() => import('./components/ManualVerification').then(module => ({ default: module.default })));
 const Testimonials = React.lazy(() => import('./components/Testimonials').then(module => ({ default: module.default })));
 const GitHubProjects = React.lazy(() => import('./components/GitHubProjects').then(module => ({ default: module.default })));
+const ResumeDownload = React.lazy(() => import('./components/ResumeDownload').then(module => ({ default: module.default })));
 
 // Loading fallback
 const LoadingSpinner = () => (
@@ -73,6 +74,7 @@ function App() {
                   <Suspense fallback={<LoadingSpinner />}><Skills /></Suspense>
                   <Suspense fallback={<LoadingSpinner />}><GitHubProjects /></Suspense>
                   <Suspense fallback={<LoadingSpinner />}><Projects /></Suspense>
+                  <Suspense fallback={<LoadingSpinner />}><ResumeDownload cvUrl="/CV_Rodrigue_GBADOU.pdf" /></Suspense>
                   <Suspense fallback={<LoadingSpinner />}><Testimonials /></Suspense>
                   <Suspense fallback={<LoadingSpinner />}><Contact /></Suspense>
                 </main>

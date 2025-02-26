@@ -81,13 +81,12 @@ export default function Projects() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Mes Projets
+            Mes Projets (Modifié)
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
             Découvrez mes réalisations récentes
           </p>
 
-          {/* Filtres */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {categories.map((category) => (
               <button
@@ -105,7 +104,6 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Grille de projets */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence>
             {filteredProjects.map((project) => (
@@ -122,14 +120,12 @@ export default function Projects() {
                 onClick={() => handleProjectClick(project)}
               >
                 <div className="relative overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-700">
-                  {/* Image du projet */}
                   <div className="relative aspect-video">
                     <LazyImage
                       src={project.image}
                       alt={project.title}
                       className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-300"
                     />
-                    {/* Overlay au survol */}
                     <div className={`absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${
                       hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
                     } flex flex-col items-center justify-center gap-4`}>
@@ -160,7 +156,6 @@ export default function Projects() {
                       </div>
                     </div>
                   </div>
-                  {/* Contenu du projet */}
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                       {project.title}
@@ -169,7 +164,6 @@ export default function Projects() {
                       {project.description}
                     </p>
                     
-                    {/* Technologies utilisées */}
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, index) => (
                         <span
@@ -188,7 +182,6 @@ export default function Projects() {
           </AnimatePresence>
         </div>
 
-        {/* Modal de démo */}
         {showDemo && selectedProject && (
           <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
             <div className="bg-white dark:bg-gray-800 rounded-lg w-full max-w-4xl">
@@ -205,7 +198,6 @@ export default function Projects() {
               </div>
               <div className="p-4">
                 {selectedProject.title.includes("Bande Annonce") ? (
-                  // Intégration de la vidéo YouTube pour le projet vidéo
                   <div className="aspect-video">
                     <iframe
                       width="100%"
@@ -218,7 +210,6 @@ export default function Projects() {
                     ></iframe>
                   </div>
                 ) : (
-                  // Pour les autres projets, afficher un lien vers la démo
                   <div className="text-center py-8">
                     <a
                       href={selectedProject.demoLink}

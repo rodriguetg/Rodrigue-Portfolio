@@ -1,12 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, Users, Share2 } from 'lucide-react';
+import { Briefcase, Users, Share2, Search } from 'lucide-react';
 
 const experiences = [
   {
+    title: "Stage - SEO",
+    company: "InnovQube",
+    type: "Stage",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    icon: Search,
+    tasks: [
+      "SEO et analyse de mots-clés",
+      "Optimisation on-page",
+      "Création de contenu optimisé",
+      "Suivi des performances avec SEMrush et Google Analytics"
+    ]
+  },
+  {
     title: "Stage : Marketing digital ET SEO",
     company: "Marketkit",
-    period: "Avril 2024 - Juin 2024",
     type: "Stage",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     icon: Briefcase,
@@ -19,7 +31,6 @@ const experiences = [
   {
     title: "CHEF DE PROJET SOCIAL MEDIA ET COMMUNICATION",
     company: "STUDHELP",
-    period: "Janvier 2024 - Mars 2024",
     type: "Stage",
     image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     icon: Users,
@@ -33,7 +44,6 @@ const experiences = [
   {
     title: "FREELANCE COMMUNITY MANAGER",
     company: "Les Cinéphiles",
-    period: "Mai 2021 - Janvier 2024",
     type: "Freelance",
     image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     icon: Share2,
@@ -88,10 +98,6 @@ export default function Experience() {
                         <div>
                           <h3 className="text-xl font-semibold text-gray-900">{exp.title}</h3>
                           <p className="text-lg text-purple-600">{exp.company}</p>
-                        </div>
-                        <div className="flex items-center text-gray-600">
-                          <Calendar className="h-5 w-5 mr-2" />
-                          <span>{exp.period}</span>
                         </div>
                       </div>
                       <div className="mt-4">

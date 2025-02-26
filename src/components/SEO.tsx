@@ -13,7 +13,7 @@ interface SEOProps {
 
 export function SEO({
   title = 'Rodrigue GBADOU',
-  description = 'Expert en Intelligence Artificielle et Marketing Digital',
+  description = 'Expert en Intelligence Artificielle, SEO et Marketing Digital | Portfolio professionnel présentant mes projets et compétences',
   image = '/og-image.jpg',
   url = 'https://rodrigue-portfolio.vercel.app',
   type = 'website',
@@ -24,6 +24,8 @@ export function SEO({
     'Réseaux Sociaux',
     'Gestion de Projet',
     'Portfolio',
+    'No Code',
+    'Web Development',
     'Rodrigue GBADOU'
   ],
   author = 'Rodrigue GBADOU'
@@ -43,8 +45,16 @@ export function SEO({
       
       {/* Métadonnées de base */}
       <meta name="robots" content="index, follow" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+      {/* Performance et SEO avancé */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link rel="preload" as="font" href="/fonts/main-font.woff2" crossOrigin="anonymous" />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
@@ -80,9 +90,10 @@ export function SEO({
             "https://www.linkedin.com/in/rodrigue-gbadou/",
             "https://github.com/rodriguetg"
           ],
-          "jobTitle": "Expert en Intelligence Artificielle",
+          "jobTitle": "Expert en Intelligence Artificielle et Marketing Digital",
           "image": image,
-          "description": description
+          "description": description,
+          "knowsAbout": ["SEO", "Marketing Digital", "Intelligence Artificielle", "Web Development", "No Code"]
         })}
       </script>
     </Helmet>
