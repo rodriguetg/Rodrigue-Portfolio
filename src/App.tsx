@@ -9,6 +9,9 @@ import { ScrollProgress } from './components/ScrollProgress';
 import { SEO } from './components/SEO';
 import { useDarkMode } from './hooks/useDarkMode';
 import ErrorBoundary from './components/ErrorBoundary';
+import CustomCursor from './components/ui/CustomCursor';
+import ParticleBackground from './components/ui/ParticleBackground';
+import LoadingScreen from './components/ui/LoadingScreen';
 
 // Lazy loading des composants avec type annotations
 const About = React.lazy(() => import('./components/About').then(module => ({ default: module.default })));
@@ -22,11 +25,7 @@ const GitHubProjects = React.lazy(() => import('./components/GitHubProjects').th
 const ResumeDownload = React.lazy(() => import('./components/ResumeDownload').then(module => ({ default: module.default })));
 
 // Loading fallback
-const LoadingSpinner = () => (
-  <div className="flex items-center justify-center min-h-[200px]">
-    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-600"></div>
-  </div>
-);
+const LoadingSpinner = () => <LoadingScreen />;
 
 // Composant pour gérer le scroll au changement de route
 function ScrollToTopOnMount() {
@@ -41,6 +40,13 @@ function ScrollToTopOnMount() {
 
 const MainApp = () => {
   const { isDark, toggle } = useDarkMode();
+
+  React.useEffect(() => {
+    document.body.classList.add('cursor-hidden');
+    return () => {
+      document.body.classList.remove('cursor-hidden');
+    };
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -58,9 +64,11 @@ const MainApp = () => {
 
   return (
     <ErrorBoundary>
-      <div className={`min-h-screen ${isDark ? 'dark bg-gray-900 text-white' : 'bg-gray-50'} transition-colors duration-200`}>
+      <div className={`relative min-h-screen ${isDark ? 'dark bg-gray-900 text-white' : 'bg-gray-50'} transition-colors duration-200 cursor-hidden overflow-hidden`}>
         <SEO />
         <ScrollProgress />
+        <ParticleBackground />
+        <CustomCursor />
         <Header onThemeToggle={toggle} onNavigate={scrollToSection} />
         
         <Suspense fallback={<LoadingSpinner />}>

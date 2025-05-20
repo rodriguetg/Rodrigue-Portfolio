@@ -25,3 +25,19 @@ body {
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
 }
+@keyframes spinSlow {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  border: 6px solid rgba(14,165,233,0.2);
+  border-top-color: #0ea5e9;
+  animation: spinSlow 1.2s linear infinite;
+}
+
+body.cursor-hidden {
+  cursor: none;
+}
