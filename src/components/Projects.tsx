@@ -114,12 +114,13 @@ export default function Projects() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.3 }}
+                whileHover={{ scale: 1.05 }}
                 className="relative group cursor-pointer"
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
                 onClick={() => handleProjectClick(project)}
               >
-                <div className="relative overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-700">
+                <div className="relative overflow-hidden rounded-lg shadow-lg group-hover:shadow-2xl transition-shadow bg-white dark:bg-gray-700">
                   <div className="relative aspect-video">
                     <LazyImage
                       src={project.image}

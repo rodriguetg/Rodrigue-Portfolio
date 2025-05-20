@@ -80,7 +80,7 @@ export default function Experience() {
               transition={{ delay: index * 0.2 }}
               className="bg-white rounded-2xl p-6 shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_30px_rgba(0,0,0,0.1)] transition-all duration-300"
             >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className={`grid grid-cols-1 md:flex md:items-center gap-6 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
                 <div className="relative h-48 md:h-full rounded-xl overflow-hidden">
                   <img
                     src={exp.image}
