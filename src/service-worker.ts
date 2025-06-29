@@ -1,51 +1,24 @@
 /// <reference lib="webworker" />
 
-import { clientsClaim } from 'workbox-core';
-import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
+import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate, CacheFirst } from 'workbox-strategies';
+import { StaleWhileRevalidate, CacheFirst, NetworkFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
-import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 
 declare const self: ServiceWorkerGlobalScope;
 
-clientsClaim();
+// Nettoyer les anciens caches
+cleanupOutdatedCaches();
 
-// Précache tous les assets générés par le build
+// Pré-cache des ressources critiques
 precacheAndRoute(self.__WB_MANIFEST);
 
-// Configuration du comportement de navigation par défaut
-const fileExtensionRegexp = new RegExp('/[^/?]+\\.[^/]+$');
-registerRoute(
-  // Retourne false pour les URLs qui ne se terminent pas par une extension de fichier,
-  // donc les URLs comme /about seront gérées par le gestionnaire de navigation
-  ({ request, url }: { request: Request; url: URL }) => {
-    if (request.mode !== 'navigate') {
-      return false;
-    }
-
-    if (url.pathname.startsWith('/_')) {
-      return false;
-    }
-
-    if (url.pathname.match(fileExtensionRegexp)) {
-      return false;
-    }
-
-    return true;
-  },
-  createHandlerBoundToURL('/index.html')
-);
-
-// Cache les images
+// Cache des images avec stratégie Cache First
 registerRoute(
   ({ request }) => request.destination === 'image',
   new CacheFirst({
     cacheName: 'images',
     plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
       new ExpirationPlugin({
         maxEntries: 60,
         maxAgeSeconds: 30 * 24 * 60 * 60, // 30 jours
@@ -54,29 +27,81 @@ registerRoute(
   })
 );
 
-// Cache le contenu statique (JS, CSS, fonts)
+// Cache des polices avec stratégie Cache First
 registerRoute(
-  ({ request }) =>
-    request.destination === 'script' ||
-    request.destination === 'style' ||
-    request.destination === 'font',
-  new StaleWhileRevalidate({
-    cacheName: 'static-resources',
+  ({ request }) => request.destination === 'font',
+  new CacheFirst({
+    cacheName: 'fonts',
     plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
       new ExpirationPlugin({
-        maxEntries: 32,
+        maxEntries: 10,
+        maxAgeSeconds: 60 * 24 * 60 * 60, // 60 jours
+      }),
+    ],
+  })
+);
+
+// Cache des API avec stratégie Network First
+registerRoute(
+  ({ url }) => url.pathname.startsWith('/api/'),
+  new NetworkFirst({
+    cacheName: 'api-cache',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 50,
+        maxAgeSeconds: 5 * 60, // 5 minutes
+      }),
+    ],
+  })
+);
+
+// Cache des pages avec stratégie Stale While Revalidate
+registerRoute(
+  ({ request }) => request.mode === 'navigate',
+  new StaleWhileRevalidate({
+    cacheName: 'pages',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 50,
         maxAgeSeconds: 24 * 60 * 60, // 24 heures
       }),
     ],
   })
 );
 
-// Écoute les messages de mise à jour
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
+// Cache des ressources statiques (CSS, JS)
+registerRoute(
+  ({ request }) => 
+    request.destination === 'style' || 
+    request.destination === 'script',
+  new StaleWhileRevalidate({
+    cacheName: 'static-resources',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 100,
+        maxAgeSeconds: 24 * 60 * 60, // 24 heures
+      }),
+    ],
+  })
+);
+
+// Gestion des erreurs offline
+self.addEventListener('fetch', (event) => {
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(() => {
+        return caches.match('/index.html');
+      })
+    );
   }
+});
+
+// Installation du service worker
+self.addEventListener('install', (event) => {
+  self.skipWaiting();
+});
+
+// Activation du service worker
+self.addEventListener('activate', (event) => {
+  event.waitUntil(self.clients.claim());
 });

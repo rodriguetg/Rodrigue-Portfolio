@@ -42,7 +42,7 @@ export default function Testimonials() {
   const [selectedTestimonial, setSelectedTestimonial] = useState<number | null>(null);
 
   return (
-    <section id="testimonials" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="testimonials" className="py-20 bg-transparent">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">

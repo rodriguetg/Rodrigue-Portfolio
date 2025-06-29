@@ -41,7 +41,7 @@ const projects: Project[] = [
     id: 3,
     title: "FREELANCE COMMUNITY MANAGER - Les Cinéphiles",
     description: "Gestion de la communauté et création de contenu pour Les Cinéphiles, une page dédiée au cinéma avec plus de 190K abonnés sur Facebook.",
-    image: "/images/projects/les-cinephiles.jpg.png",
+    image: "/images/projects/les-cinephiles.png",
     technologies: ["Community Management", "Création de Contenu", "Social Media", "Engagement"],
     liveLink: "https://www.facebook.com/fansdescinemas",
     demoLink: "https://www.facebook.com/fansdescinemas",
@@ -77,7 +77,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="projects" className="py-20 bg-transparent dark:bg-transparent">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">

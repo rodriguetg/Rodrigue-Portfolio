@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header';
-import { Hero } from './components/Hero';
+import Hero from './components/Hero';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { ScrollProgress } from './components/ScrollProgress';
@@ -21,7 +21,6 @@ const Contact = React.lazy(() => import('./components/Contact').then(module => (
 const Projects = React.lazy(() => import('./components/Projects').then(module => ({ default: module.default })));
 const ManualVerification = React.lazy(() => import('./components/ManualVerification').then(module => ({ default: module.default })));
 const Testimonials = React.lazy(() => import('./components/Testimonials').then(module => ({ default: module.default })));
-const GitHubProjects = React.lazy(() => import('./components/GitHubProjects').then(module => ({ default: module.default })));
 const ResumeDownload = React.lazy(() => import('./components/ResumeDownload').then(module => ({ default: module.default })));
 
 // Loading fallback
@@ -69,15 +68,14 @@ const MainApp = () => {
         <ScrollProgress />
         <ParticleBackground />
         <CustomCursor />
-        <Header onThemeToggle={toggle} onNavigate={scrollToSection} />
+        <Header />
         
         <Suspense fallback={<LoadingSpinner />}>
           <main>
-            <Hero onNavigate={scrollToSection} />
+            <Hero />
             <Suspense fallback={<LoadingSpinner />}><About /></Suspense>
             <Suspense fallback={<LoadingSpinner />}><Experience /></Suspense>
             <Suspense fallback={<LoadingSpinner />}><Skills /></Suspense>
-            <Suspense fallback={<LoadingSpinner />}><GitHubProjects /></Suspense>
             <Suspense fallback={<LoadingSpinner />}><Projects /></Suspense>
             <Suspense fallback={<LoadingSpinner />}><ResumeDownload cvUrl="/CV_Rodrigue_GBADOU.pdf" /></Suspense>
             <Suspense fallback={<LoadingSpinner />}><Testimonials /></Suspense>

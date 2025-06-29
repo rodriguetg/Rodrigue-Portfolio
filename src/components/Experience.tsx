@@ -4,6 +4,20 @@ import { Briefcase, Users, Share2, Search } from 'lucide-react';
 
 const experiences = [
   {
+    company: "Haskn",
+    title: "Stage - Développement web & Automatisation No-Code",
+    type: "Stage",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    icon: Briefcase,
+    tasks: [
+      "Intégration de contenu (WordPress, AEM, Contentools…)",
+      "Création de workflows no-code (Zapier, Make, N8N)",
+      "Prompt engineering pour outils d'IA",
+      "Développement d'interfaces simples (HTML/CSS/JS/Python)",
+      "Automatisation via API"
+    ]
+  },
+  {
     title: "Stage - SEO",
     company: "InnovQube",
     type: "Stage",
@@ -56,7 +70,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 bg-white">
+    <section id="experience" className="py-20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

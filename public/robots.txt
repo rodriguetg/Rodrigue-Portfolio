@@ -1,4 +1,58 @@
+# Robots.txt pour le portfolio de Rodrigue GBADOU
+# https://rodrigue-portfolio.vercel.app
+
+# Autoriser tous les robots d'exploration
 User-agent: *
 Allow: /
 
+# Autoriser l'exploration des ressources importantes
+Allow: /images/
+Allow: /public/
+Allow: /src/
+
+# Bloquer l'exploration des fichiers de développement et de configuration
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /tsconfig.json
+Disallow: /vite.config.js
+Disallow: /tailwind.config.js
+Disallow: /postcss.config.js
+Disallow: /eslint.config.js
+
+# Bloquer l'exploration des fichiers de cache et de build
+Disallow: /.cache/
+Disallow: /dist/
+Disallow: /build/
+Disallow: /.next/
+Disallow: /.vercel/
+
+# Bloquer l'exploration des fichiers de test
+Disallow: /test/
+Disallow: /tests/
+Disallow: /__tests__/
+Disallow: /*.test.js
+Disallow: /*.test.ts
+Disallow: /*.test.tsx
+Disallow: /*.spec.js
+Disallow: /*.spec.ts
+Disallow: /*.spec.tsx
+
+# Bloquer l'exploration des fichiers de développement
+Disallow: /src/**/*.map
+Disallow: /src/**/*.d.ts
+Disallow: /src/**/*.stories.*
+Disallow: /src/**/*.test.*
+Disallow: /src/**/*.spec.*
+
+# Paramètres de crawl pour les robots
+Crawl-delay: 1
+
+# Sitemap
 Sitemap: https://rodrigue-portfolio.vercel.app/sitemap.xml
+
+# Informations supplémentaires
+# Ce site est un portfolio professionnel d'expert en IA et Marketing Digital
+# Contact: rodrigue.gbadou@example.com
