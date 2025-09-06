@@ -22,3 +22,33 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Images et médias lourds
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.svg
+*.bmp
+*.avi
+*.mov
+*.mp4
+*.mp3
+*.zip
+*.rar
+*.7z
+
+# Build/production si Vercel ou autre
+.vercel
+build/
+out/
+coverage/
+
+# Système/MacOS/Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*.bak
+
+# Tests et fichiers temporaires
+test.*
+*.tmp
