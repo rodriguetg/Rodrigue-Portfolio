@@ -52,3 +52,8 @@ desktop.ini
 # Tests et fichiers temporaires
 test.*
 *.tmp
+
+# Variables d'environnement
+.env
+.env.local
+.env.*.local
